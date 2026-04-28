@@ -3,27 +3,21 @@ package ejerciciosboletin2;
 import java.io.*;
 import java.util.Scanner;
 
-/**
- * Clase que simula el comando 'more' de Linux.
- * Muestra el fichero de 24 en 24 líneas.
- */
 public class Ejercicio3 {
 
     public static void main(String[] args) {
         File file = new File("src/archivosejerciciosboletin2/carta.txt");
-        Scanner teclado = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
-        try (Scanner sc = new Scanner(new FileReader(file))) {
+        try (Scanner sc1 = new Scanner(new FileReader(file))) {
             int contadorLineas = 0;
 
-            while (sc.hasNextLine()) {
-                System.out.println(sc.nextLine());
+            while (sc1.hasNextLine()) {
+                System.out.println(sc1.nextLine());
                 contadorLineas++;
-
-                // Cada 24 líneas espera que el usuario pulse ENTER
                 if (contadorLineas % 24 == 0) {
                     System.out.print("Pulsa ENTER para continuar");
-                    teclado.nextLine();
+                    sc1.nextLine();
                 }
             }
             System.out.println("FIN DEL FICHERO");
@@ -32,6 +26,6 @@ public class Ejercicio3 {
             System.out.println("Error al leer el fichero: " + e.getMessage());
         }
 
-        teclado.close();
+        sc.close();
     }
 }

@@ -4,15 +4,8 @@ import java.io.*;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-/**
- * Clase para gestionar un registro histórico de temperaturas.
- * Permite guardar máximas y mínimas diarias y calcular los valores extremos.
- */
 public class Ejercicio8 {
 
-    /**
-     * Menú interactivo para registrar temperaturas o consultar el historial.
-     */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int op;
@@ -26,7 +19,6 @@ public class Ejercicio8 {
                     System.out.print("Temp Máxima: "); int max = sc.nextInt();
                     System.out.print("Temp Mínima: "); int min = sc.nextInt();
                     
-                    // Guardamos la fecha actual y los datos separados por comas
                     out.write(LocalDate.now() + "," + max + "," + min);
                     out.newLine();
                 } catch (IOException e) {
@@ -39,7 +31,6 @@ public class Ejercicio8 {
                     System.out.println("Fecha | Max | Min");
                     
                     while ((linea = in.readLine()) != null) {
-                        // Dividimos la línea por las comas para obtener cada dato
                         String[] datos = linea.split(",");
                         int tMax = Integer.parseInt(datos[1]);
                         int tMin = Integer.parseInt(datos[2]);

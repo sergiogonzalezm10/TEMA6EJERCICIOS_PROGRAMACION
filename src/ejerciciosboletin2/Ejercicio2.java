@@ -3,20 +3,13 @@ package ejerciciosboletin2;
 import java.io.*;
 import java.util.*;
 
-/**
- * 
- * Clase que permite mostrar un libro de firmas e insertar un nuevo nombre (sin repetidos).
- * Los datos se guardan en el archivo firmas.txt.
- */
 public class Ejercicio2 {
 
     public static void main(String[] args) {
 
-        // Lista que guarda los nombres en memoria
         ArrayList<String> firmas = new ArrayList<>();
         File file = new File("src/archivosejerciciosboletin2/firmas.txt");
 
-        // Carga inicial: si el archivo existe, leemos los nombres
         if (file.exists()) {
             try (Scanner sc = new Scanner(new FileReader(file))) {
                 while (sc.hasNextLine()) {
@@ -39,7 +32,7 @@ public class Ejercicio2 {
             sc.nextLine();
 
             switch (opcion) {
-                case 1 -> { // Mostrar todas las firmas
+                case 1 -> {
                     if (firmas.isEmpty()) {
                         System.out.println("El libro está vacío.");
                     } else {
@@ -47,7 +40,7 @@ public class Ejercicio2 {
                             System.out.println((i + 1) + ". " + firmas.get(i));
                     }
                 }
-                case 2 -> { // Añadir nombre si no está repetido
+                case 2 -> {
                     System.out.print("Nombre: ");
                     String nombre = sc.nextLine().trim();
                     if (firmas.contains(nombre)) {
@@ -57,7 +50,7 @@ public class Ejercicio2 {
                         System.out.println("Firma añadida.");
                     }
                 }
-                case 3 -> { // Guardar en el archivo antes de salir
+                case 3 -> {
                     file.getParentFile().mkdirs();
                     try (BufferedWriter out = new BufferedWriter(new FileWriter(file))) {
                         for (String nombre : firmas) {
