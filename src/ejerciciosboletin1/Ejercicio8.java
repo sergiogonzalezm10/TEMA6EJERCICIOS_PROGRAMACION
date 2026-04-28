@@ -1,10 +1,18 @@
-package ejercicios;
+package ejerciciosboletin1;
 
 import java.io.*;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+/**
+ * Clase para gestionar un registro histórico de temperaturas.
+ * Permite guardar máximas y mínimas diarias y calcular los valores extremos.
+ */
 public class Ejercicio8 {
+
+    /**
+     * Menú interactivo para registrar temperaturas o consultar el historial.
+     */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int op;
@@ -14,26 +22,32 @@ public class Ejercicio8 {
             op = sc.nextInt();
 
             if (op == 1) {
-                try (BufferedWriter out = new BufferedWriter(new FileWriter("src/archivosEjercicios/temperaturas.txt", true))) {
+                try (BufferedWriter out = new BufferedWriter(new FileWriter("src/archivosejerciciosboletin1/temperaturas.txt", true))) {
                     System.out.print("Temp Máxima: "); int max = sc.nextInt();
                     System.out.print("Temp Mínima: "); int min = sc.nextInt();
+                    
+                    // Guardamos la fecha actual y los datos separados por comas
                     out.write(LocalDate.now() + "," + max + "," + min);
                     out.newLine();
                 } catch (IOException e) {
                     System.out.println("Error al guardar datos.");
                 }
             } else if (op == 2) {
-                try (BufferedReader in = new BufferedReader(new FileReader("src/archivosEjercicios/temperaturas.txt"))) {
+                try (BufferedReader in = new BufferedReader(new FileReader("src/archivosejerciciosboletin1/temperaturas.txt"))) {
                     String linea;
                     int maxAbs = -999, minAbs = 999;
                     System.out.println("Fecha | Max | Min");
-                    while ((linea = in.readLine()) != null) { // [cite: 37]
+                    
+                    while ((linea = in.readLine()) != null) {
+                        // Dividimos la línea por las comas para obtener cada dato
                         String[] datos = linea.split(",");
                         int tMax = Integer.parseInt(datos[1]);
                         int tMin = Integer.parseInt(datos[2]);
                         
+                        
                         if (tMax > maxAbs) maxAbs = tMax;
                         if (tMin < minAbs) minAbs = tMin;
+                        
                         System.out.println(linea);
                     }
                     System.out.println("\nVALORES EXTREMOS:");
