@@ -1,0 +1,2 @@
+12345678A;Ana García López;1990-03-15;1500.0
+23456789B;Carlos Martínez Ruiz;1985-07-22;3200.5
