@@ -6,18 +6,19 @@ import java.util.Scanner;
 public class Ejercicio3 {
 
     public static void main(String[] args) {
-        File file = new File("src/archivosejerciciosboletin2/carta.txt");
-        Scanner sc = new Scanner(System.in);
+        File file = new File("src/txtejerciciosboletin2/carta2.txt");
+        Scanner teclado = new Scanner(System.in);
 
-        try (Scanner sc1 = new Scanner(new FileReader(file))) {
+        try (Scanner sc = new Scanner(new FileReader(file))) {
             int contadorLineas = 0;
 
-            while (sc1.hasNextLine()) {
-                System.out.println(sc1.nextLine());
+            while (sc.hasNextLine()) {
+                System.out.println(sc.nextLine());
                 contadorLineas++;
+
                 if (contadorLineas % 24 == 0) {
                     System.out.print("Pulsa ENTER para continuar");
-                    sc1.nextLine();
+                    teclado.nextLine(); // ← sc del teclado, no del fichero
                 }
             }
             System.out.println("FIN DEL FICHERO");
@@ -26,6 +27,6 @@ public class Ejercicio3 {
             System.out.println("Error al leer el fichero: " + e.getMessage());
         }
 
-        sc.close();
+        teclado.close();
     }
 }

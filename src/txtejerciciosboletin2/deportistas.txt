@@ -1,0 +1,11 @@
+Nombre;Apellidos;Edad;Peso;Estatura
+Juan;García López;25;75.5;1.80
+María;Fernández Ruiz;30;62.0;1.65
+Carlos;Martínez Sánchez;22;88.3;1.90
+Lucía;Torres Pérez;27;58.0;1.70
+Alejandro;Romero Castro;35;95.0;1.85
+Elena;Díaz Moreno;28;65.5;1.68
+David;López Herrera;19;72.0;1.78
+Sofía;González Vega;33;60.0;1.72
+Miguel;Sánchez Navarro;42;80.0;1.75
+Paula;Jiménez Blanco;24;55.5;1.60
